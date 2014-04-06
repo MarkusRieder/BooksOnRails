@@ -57,6 +57,6 @@ module BooksOnRails
     config.assets.version = '1.0'
     
     #http://guides.rubyonrails.org/asset_pipeline.html
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    #config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end
