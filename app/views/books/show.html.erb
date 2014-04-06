@@ -1,0 +1,42 @@
+<div class="col-md-8">
+	<p>
+		<b>Title:</b>
+		<%= @book.title %>
+	</p>
+
+	<p>
+		<b>Author:</b>
+		<%= @book.author %>
+	</p>
+
+	<p>
+		<b>Isbn:</b>
+		<%= @book.isbn %>
+	</p>
+
+	<p>
+		<b>Genre:</b>
+		<%= @book.genre %>
+	</p>
+
+	<p>
+		<b>Shelf:</b>
+		<%= @book.shelf %>
+	</p>
+
+	<p>
+		<b>Summary:</b>
+		<%= @book.summary %>
+	</p>
+
+	<br />
+	<br />
+
+	<%= link_to 'Edit', edit_book_path(@book),:class => "btn btn-primary btn-xs"  %> |
+	<%= link_to 'Back', books_path,:class => "btn btn-primary btn-xs"  %>
+
+</div>
+<div class="col-md-4">
+	<img src="http://covers.librarything.com/devkey/9ec69385138e371e0128283ddd642fb3/large/isbn/<%= @book.isbn %>">
+
+</div>

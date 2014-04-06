@@ -1,0 +1,43 @@
+<h1>My books</h1>
+<br />
+<div>
+	<img style="float:left" src="/assets/library.png" width="30px" height="44px"  class="img-responsive" alt="library image" />
+	<div align="left">
+		<h4> We found <%= @books.count.inspect %> books </h4>
+	</div>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+	<tr>
+		<th></th>
+		<th><%= sortable "title" %></th>
+		<th><%= sortable "author" %></th>
+		<th><%= sortable "isbn" %></th>
+		<th><%= sortable "genre" %></th>
+		<th><%= sortable "shelf" %></th>
+	</tr>
+
+	<% @books.each do |book| %>
+	<tr>
+		<td><img src="http://covers.librarything.com/devkey/9ec69385138e371e0128283ddd642fb3/small/isbn/<%= book.isbn %>"></td>
+		<td><%= book.title %></td>
+		<td><%= book.author %></td>
+		<td><%= book.isbn %></td>
+		<td><%= book.genre %></td>
+		<td><%= book.shelf %></td>
+		<td><%= link_to 'Show', book,:class => "btn btn-primary btn-xs"  %></td>
+		<td><%= link_to 'Edit', edit_book_path(book),:class => "btn btn-primary btn-xs"  %></td>
+		<td><%= button_to 'Destroy', book_path(book), :method => :delete, :confirm => 'Are you sure?',:class => "btn btn-danger btn-xs" %></td>
+	</tr>
+	<% end %>
+</table>
+<br />
+<%= will_paginate @books %>
+<br />
+<br />
+<% if user_signed_in? %>
+<p>
+	<%= link_to 'Add a New Book', new_book_path, :class => "btn btn-default btn-lg"  %>
+</p>
+<% end %>

@@ -1,0 +1,30 @@
+<h1>Listing profiles</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
+    <th>About Yourself</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profiles.each do |profile| %>
+  <tr>
+  <td><img src="<%= profile.avatar %>"></td>
+    <td><%= profile.firstname %></td>
+    <td><%= profile.lastname %></td>
+    <td><%= profile.address %></td>
+    <td><%= profile.aboutyourself %></td>
+    <td><%= link_to 'Show', profile, :class => "btn btn-primary btn-xs"   %></td>
+    <td><%= link_to 'Edit', edit_profile_path(profile), :class => "btn btn-primary btn-xs"   %></td>
+    <td><%= link_to 'Destroy', profile, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger btn-xs"   %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Profile', new_profile_path %>

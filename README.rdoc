@@ -1,0 +1,15 @@
+== Welcome to BooksOnRails
+
+BooksOnRails is a web-application written for a college assignment.
+
+It's purpose is to maintain an online record of your library at home.
+Books can be added, deleted and edited.
+
+To add a book you can either use a form to fill in all the details or
+user a search orm which searches ISBNdb or the available titles.
+If you found what you were looking for just click add and the book is in your list.
+
+There is a lot more to do but it'll be enough for the purpose
+
+
+-mr

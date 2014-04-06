@@ -1,0 +1,31 @@
+<div class="col-md-8">
+<p>
+  <b>First name:</b>
+  <%= @profile.firstname %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @profile.lastname %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @profile.address %>
+</p>
+
+<p>
+  <b>About Yourself:</b>
+  <%= @profile.aboutyourself %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
+
+</div>
+<div class="col-md-4">
+	<h4>Your Avatar</h4>
+	<img src="<%= @profile.avatar  %>">
+
+</div>

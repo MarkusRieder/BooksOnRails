@@ -1,0 +1,45 @@
+<%= form_for(@book, :html => {:class => "form-horizontal", :role => "form"}) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :title%><br />
+    <%= f.text_field :title, :class => "form-control", :placeholder => "Enter the books title" %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author, :class => "form-control", :placeholder => "Enter the books author" %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn %><br />
+    <%= f.text_field :isbn, :class => "form-control", :placeholder => "Enter the books ISBN" %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br />
+    <%= f.text_field :genre, :class => "form-control", :placeholder => "genre" %>
+  </div>
+  <div class="field">
+    <%= f.label :shelf %><br />
+    <%= f.text_field :shelf, :class => "form-control", :placeholder => "Enter the books virtual shelf" %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br />
+    <%= f.text_area :summary, :class => "form-control", :placeholder => "Enter a summary or plot" %>
+  </div>
+<br />
+<br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br />
+<br />
+<% end %>

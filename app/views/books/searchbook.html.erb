@@ -1,0 +1,27 @@
+<h1> Search for a book</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th></th>
+		<th><%= sortable "title" %></th>
+		<th><%= sortable "author" %></th>
+		<th><%= sortable "isbn" %></th>
+	</tr>
+
+	<% @results.each do |result| %>
+	<tr>
+		<td><img src="http://covers.librarything.com/devkey/9ec69385138e371e0128283ddd642fb3/small/isbn/<%= result.isbn %>"></td>
+		<td><%= result.title %></td>
+		<td><%= result.authors_text %></td>
+		<td><%= result.isbn %></td>
+		<td><%= link_to 'Add this Book', new_book_path(:rtitle => result.title, :rauthor => result.authors_text, :risbn => result.isbn), :class => "btn btn-success btn-xs" %></td>
+
+	</tr>
+	<% end %>
+</table>
+<br />
+<!-- https://github.com/mislav/will_paginate/issues/77 -->
+<%= will_paginate @results if @results.respond_to? :total_pages %>
+<br />
+<br />
+<%= link_to 'Back', new_book_path,:class => "btn btn-primary btn-xs"  %>

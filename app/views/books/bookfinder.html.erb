@@ -1,0 +1,9 @@
+<h1> bookfinder</h1>
+  
+  <% @results.each do |result| %>
+  
+ authors <%= result.authors_text%><br />
+ title <%=  result.title%><br />
+ isbn10 <%=  result.isbn%><br />
+  
+  <% end %>
