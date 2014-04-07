@@ -47,10 +47,19 @@ class BooksController < ApplicationController
     @book.user_id = @user.id
 
     @book = Book.new(:title => params[:rtitle],:author => params[:rauthor], :isbn => params[:risbn])
+    #   @book = Book.find_by_user_id(@user.id)
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @book }
+    isbn = @book.isbn
+    user_id = @user.id
+    books = Book.find_by_isbn_and_user_id(isbn,user_id)
+    if books.nil?
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @book }
+      end
+    else
+      redirect_to "/books/search"
+      flash[:alert] = "the book '#{@book.title}' already exist - please search for another book!!!"
     end
   end
 
@@ -134,3 +143,4 @@ class BooksController < ApplicationController
     %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 end
+
